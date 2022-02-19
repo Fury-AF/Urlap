@@ -1,0 +1,88 @@
+@charset "utf-8";
+
+* {
+  box-sizing: border-box;
+}
+main {
+  display: grid;
+  grid-template-columns: 1 fr 3fr; /* ha ezt használom akkor második tábla */
+  /* grid-template-areas: #ha ezt használom nem kell a felső sor
+    "h h h h"
+    "n n n n"
+    "as a a a "
+    "f f f f"; */
+  grid-template-areas:
+    "h h "
+    "n a  "
+    "f f ";
+  grid-gap: 10px;
+  width: 80%;
+  margin: auto;
+}
+header {
+  grid-area: h;
+}
+nav {
+  grid-area: n;
+}
+
+article {
+  grid-area: a;
+}
+footer {
+  grid-area: f;
+}
+nav li {
+  list-style: none;
+}
+header,
+nav,
+aside,
+article,
+footer {
+  border: 1px solid gray;
+  padding: 10px;
+}
+nav a {
+  text-decoration: none;
+  display: block; /* aktív lesz a háttere is */
+}
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+nav a:hover {
+  color: brown;
+}
+/* reszponzivitás */ /* egyes képernyőn milyen méretek jelenjenek meg */
+main {
+  text-align: justify;
+  width: 80%;
+  /* width esetén mindig százalékos jelben kell megadni, mert ha az oldalt méretezem az ablak is méreteződik */
+  max-width: 900px; /* ennél a méretnél nem lesz nagyobb a szöveg akár mekkora lesz a böngésző ablak */
+  margin: auto; /* képernyő közepére igazítja a szöveget */
+}
+/* media querick mindig az összes formázás után lehet  */
+@media screen and (max-width: 800px) {
+  main {
+    background: red;
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  main {
+    background: blue;
+    width: 100%;
+    grid-template-columns: 1 fr;
+    grid-template-areas:
+      "h"
+      "n "
+      "a"
+      "f ";
+  }
+  /* navigáció li tegjei kerüljenek egymás mellé */
+  nav ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
