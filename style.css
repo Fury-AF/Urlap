@@ -62,6 +62,17 @@ main {
   max-width: 900px; /* ennél a méretnél nem lesz nagyobb a szöveg akár mekkora lesz a böngésző ablak */
   margin: auto; /* képernyő közepére igazítja a szöveget */
 }
+
+/* Ürlap formázás */
+#nevek {
+  display: grid;
+  grid-template-columns: 100px auto;
+}
+#nevek label {
+  text-align: right;
+  padding: 5px;
+}
+
 /* media querick mindig az összes formázás után lehet  */
 @media screen and (max-width: 800px) {
   main {
@@ -84,5 +95,12 @@ main {
   nav ul {
     display: grid;
     grid-template-columns: 1fr 1fr;
+  }
+  #nevek {
+    grid-template-columns: auto;
+    font-size: 15pt;
+  }
+  #nevek label {
+    text-align: left;
   }
 }
